@@ -14,14 +14,11 @@ body {
   border: 0;
 }
 
-nav {
-  padding: 3rem 0;
-  background-color: rgb(34, 1, 63);
-}
-
 .header {
   display: flex;
   align-items: center;
+  padding: 3rem 0;
+  background-color: rgb(34, 1, 63);
 }
 
 .header h1 {
@@ -48,4 +45,10 @@ nav {
   background-color: rgb(255, 0, 171);
   width: 100%;
   text-align: center;
+}
+
+.col-titles {
+  padding: 0.5rem 0;
+  background-color: rgb(104, 0, 255);
+  color: white;
 }
