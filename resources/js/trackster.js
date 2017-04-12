@@ -12,7 +12,31 @@ var Trackster = {};
   Append each "row" to the container in the body to display all tracks.
 */
 Trackster.renderTracks = function(tracks) {
+  $('#list').empty();
 
+  for (var i = 0; i < tracks.length; i++) {
+    console.log(tracks[i].name)
+    var htmlSongRow =
+    '<div class="row song">' +
+      '<div class="col-xs-2">' +
+        '<a target="_blank" href="' + tracks[i].preview_url + '"><i id="play-button" class="fa fa-lg fa-play-circle-o"></i></a>' +
+      '</div>' +
+      '<div class="col-xs-4">' +
+        tracks[i].name +
+      '</div>' +
+      '<div class="col-xs-2">' +
+        tracks[i].artists[0].name +
+      '</div>' +
+      '<div class="col-xs-2">' +
+        tracks[i].album.name +
+      '</div>' +
+      '<div class="col-xs-2">' +
+        tracks[i].popularity +
+      '</div>' +
+    '</div>';
+
+    $('#list').append(htmlSongRow);
+  }
 };
 
 /*
@@ -23,6 +47,7 @@ Trackster.searchTracksByTitle = function(title) {
   var url = 'https://api.spotify.com/v1/search?type=track&q=' + title;
 
   $.get(url, function(data, status) {
-      console.log(data);
+      console.log(data.tracks.items);
+      Trackster.renderTracks(data.tracks.items);
   });
 };
