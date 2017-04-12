@@ -1,8 +1,14 @@
 $(document).ready(function() {
   $('#search-icon').click(function() {
     var text = $('#search-bar').val();
-
     Trackster.searchTracksByTitle(text);
+  });
+
+  $(document).keypress(function(e) {
+    if (e.which === 13) {
+      var text = $('#search-bar').val();
+      Trackster.searchTracksByTitle(text);
+    }
   });
 });
 
